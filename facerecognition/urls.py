@@ -3,5 +3,6 @@ from .import views
 
 
 urlpatterns = [
-    path('', views.index),
+    path('identify', views.identify, name='identifyPage'),
+    path('', views.home, name='homePage')
 ]
