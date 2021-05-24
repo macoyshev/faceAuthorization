@@ -7,3 +7,4 @@ class CreateStudent(ModelForm):
         model = Student
         fields = '__all__'
 
+

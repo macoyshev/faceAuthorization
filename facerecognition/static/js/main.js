@@ -2,7 +2,7 @@ const video = document.getElementById('video')
 
 let cam
 let width = 350
-let height = 300
+let height = 350
 
 function setup() {
 
@@ -25,5 +25,5 @@ function setup() {
 
 
 function draw(){
-    image(cam,20, 20, width, height)
+    image(cam, 0 ,0, width, height)
 }

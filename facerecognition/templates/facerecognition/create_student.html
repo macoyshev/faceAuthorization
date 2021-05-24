@@ -1,0 +1,23 @@
+{% extends 'facerecognition/main.html' %}
+
+{% block style %}
+
+{% include 'facerecognition/glass_style.html' %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="glass">
+
+	<form action="" method="POST" enctype="multipart/form-data">
+		{%csrf_token%}
+		{{ form.as_p }}
+		<input type="submit" name="submit" value="Подтвердить">
+	</form>
+
+</div>
+
+{% endblock %}

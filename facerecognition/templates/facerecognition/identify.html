@@ -1,12 +1,34 @@
 {% extends 'facerecognition/main.html' %}
 {% load static %}
 
+{% block style%}
+<style>
+    canvas{
+        border-radius: 50%;
+    }
+
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .buttonE:first-child{
+        margin-bottom: 10px;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 
 <form action="" method="POST">
     {% csrf_token %}
     <input type="hidden" id="photoForm" name="image">
-    <input type="submit" value="Войти" id="enter">
+    <div class="buttons">
+        <a href="{% url 'create_studentPage' %}" class="buttonE">Форма</a>
+        <button id="enter" class="buttonE">Войти</button>
+    </div>
 </form>
 
 {% endblock %}

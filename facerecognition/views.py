@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import *
 from django.shortcuts import redirect
 from .utils import *
+from .forms import CreateStudent
 
 
 def identify(request):
@@ -26,3 +27,17 @@ def identify(request):
 
 def home(request):
     return render(request, 'facerecognition/home.html')
+
+
+def create_student(request):
+    form = CreateStudent()
+    if request.method == 'POST':
+        form = CreateStudent(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/identify')
+    context = {
+        'form': form
+    }
+    return render(request, 'facerecognition/create_student.html', context)
+

@@ -5,11 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;600&display=swap" rel="stylesheet">
+
     <style>
         *{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
         }
 
         main {
@@ -45,6 +50,32 @@
             right: 8%;
             top:5%;
         }
+
+        a{
+            text-decoration: none;
+        }
+
+        .buttonE{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            cursor: pointer;
+            color: #1C4236;
+            font-weight: lighter;
+            letter-spacing: 2px;
+            border: 1px solid white;
+            border-radius: 20px;
+            width: 120px;
+            height: 50px;
+            font-size: 15px;
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.9),
+                rgba(255, 255, 255, 0.3)
+                );
+        }
+
     </style>
     {% block style %}
     {% endblock %}

@@ -1,20 +1,9 @@
 {% extends 'facerecognition/main.html' %}
 
 {% block style %}
-<style>
-        .glass{
-            width: 60%;
-            height: 80vh;
-            background: linear-gradient(
-            to left top,
-            rgba(255, 255, 255, 0.5),
-            rgba(255, 255, 255, 0.3)
-            );
-            border-radius: 2rem;
-            z-index: 3;
-            backdrop-filter: blur(10rem);
-        }
-</style>
+
+{% include 'facerecognition/glass_style.html' %}
+
 {% endblock%}
 {% block content %}
 <div class="glass">
