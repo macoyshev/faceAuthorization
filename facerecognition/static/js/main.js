@@ -1,32 +1,29 @@
-const video = document.getElementById('value')
+const video = document.getElementById('video')
 
 let cam
+let width = 350
+let height = 300
 
 function setup() {
 
-  const form = document.getElementById('photoForm')
-  const button = document.getElementById('enter')
+    const form = document.getElementById('photoForm')
+    const button = document.getElementById('enter')
 
-  cam = createCapture(VIDEO)
+    cam = createCapture(VIDEO)
+    cam.size(width, height)
+    cam.hide()
 
-  button.addEventListener('click', ()=>{
-    cam.loadPixels()
-    let data = cam.canvas.toDataURL("image/png")
-    data = data.replace(/^data:image\/(png|jpg);base64,/, "");
-    form.value = data
-  })
+    createCanvas(width, height)
 
-  noCanvas();
+    button.addEventListener('click', () => {
+        cam.loadPixels()
+        let data = cam.canvas.toDataURL("image/png")
+        data = data.replace(/^data:image\/(png|jpg);base64,/, "");
+        form.value = data
+    })
 }
 
-// function startapp(){
-//   navigator.mediaDevices.getUserMedia({
-//     video: true,
-//     audio: false,
-//   }).then(stream => {
-//     video.srcObject = stream
-//   })
-//
-// }
-//
-// window.addEventListener('load', startapp, false)
+
+function draw(){
+    image(cam,20, 20, width, height)
+}

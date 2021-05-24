@@ -17,7 +17,9 @@ def identify(request):
         for student in students:
             database[student.name + " " + student.surname] = student.photo.url
 
-        print(is_tpu_student(database))
+        result = is_tpu_student()
+        if result:
+            return render(request, '')
 
     return render(request, 'facerecognition/identify.html')
 
