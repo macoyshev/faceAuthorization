@@ -12,14 +12,14 @@ def identify(request):
         save_wb_image(image_code)
 
         students = Student.objects.all()
-        database = {}
 
-        for student in students:
-            database[student.name + " " + student.surname] = student.photo.url
+        student = is_tpu_student(students)
+        if student:
+            context = {
+                'student': student,
+            }
 
-        result = is_tpu_student()
-        if result:
-            return render(request, '')
+            return render(request, 'facerecognition/home.html', context=context)
 
     return render(request, 'facerecognition/identify.html')
 

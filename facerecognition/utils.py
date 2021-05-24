@@ -6,23 +6,28 @@ import PIL
 IMG_WB_PATH = 'facerecognition/media/testim.jpg'
 
 
-def is_tpu_student(database):
+def is_tpu_student(students):
     image = face_recognition.load_image_file(IMG_WB_PATH)
+
+    '''check image valid'''
     try:
         image_encoding = face_recognition.face_encodings(image)[0]
     except IndexError:
-        return 'ЛИЦО ПОКАЖИ!!!!'
-    for fullname, photo_url in database.items():
+        return 'INVALID, SHOW FACE'
 
-        path = 'facerecognition/media/images/' + get_photo_name(photo_url)
+    for student in students:
+
+        path = 'facerecognition/media/images/' + get_photo_name(student.photo.url)
 
         photo = face_recognition.load_image_file(path)
         photo_encoding = face_recognition.face_encodings(photo)[0]
 
         result = face_recognition.compare_faces([photo_encoding], image_encoding)[0]
         if result:
-            return fullname
-    return 'NON'
+
+            return student
+
+    return False
 
 
 def save_wb_image(image_code):
