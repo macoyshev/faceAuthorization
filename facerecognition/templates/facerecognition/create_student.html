@@ -1,5 +1,5 @@
 {% extends 'facerecognition/main.html' %}
-
+{% load static %}
 {% block style %}
 
 {% include 'facerecognition/glass_style.html' %}
@@ -13,8 +13,13 @@
 <div class="glass">
 
 	<form action="" method="POST" enctype="multipart/form-data">
-		{%csrf_token%}
-		{{ form.as_p }}
+		{% csrf_token %}
+		{% for form in forms %}
+
+				{{form.name}} {{form}}<br>
+
+		{% endfor %}
+		<script src="{% static 'js/main.js'%}"></script>
 		<input type="submit" name="submit" value="Подтвердить">
 	</form>
 

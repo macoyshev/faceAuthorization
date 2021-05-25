@@ -8,3 +8,4 @@ class CreateStudent(ModelForm):
         fields = '__all__'
 
 
+

@@ -17,7 +17,7 @@ def is_tpu_student(students):
 
     for student in students:
 
-        path = 'facerecognition/media/images/' + get_photo_name(student.photo.url)
+        path = 'media/images/' + get_photo_name(student.photo.url)
 
         photo = face_recognition.load_image_file(path)
         photo_encoding = face_recognition.face_encodings(photo)[0]

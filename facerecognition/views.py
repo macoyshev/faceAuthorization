@@ -37,7 +37,7 @@ def create_student(request):
             form.save()
             return redirect('/identify')
     context = {
-        'form': form
+        'forms': form
     }
     return render(request, 'facerecognition/create_student.html', context)
 
