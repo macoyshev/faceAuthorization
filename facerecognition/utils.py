@@ -6,7 +6,7 @@ import PIL
 IMG_WB_PATH = 'facerecognition/media/testim.jpg'
 
 
-def is_tpu_student(students):
+def is_student(students):
     image = face_recognition.load_image_file(IMG_WB_PATH)
 
     '''check image valid'''
