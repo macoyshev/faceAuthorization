@@ -14,7 +14,7 @@ def identify(request):
 
         students = Student.objects.all()
 
-        student = is_tpu_student(students)
+        student = is_student(students)
         if student:
             context = {
                 'student': student,
